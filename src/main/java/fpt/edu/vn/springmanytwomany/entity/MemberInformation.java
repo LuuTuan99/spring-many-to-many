@@ -11,6 +11,9 @@ public class MemberInformation {
     @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "memberId")
     private Member member;
+    // Must check.
+    @Column(insertable = false, updatable = false)
+    private String memberId;
 
     public int getId() {
         return id;
@@ -34,5 +37,13 @@ public class MemberInformation {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 }
